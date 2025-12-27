@@ -1,0 +1,41 @@
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp"
+    environment:
+      TZ: America/New_York
+      WEBPASSWORD: Medellin9
+    volumes:
+      - stack_pihole_data:/etc/pihole
+      - stack_dnsmasq_data:/etc/dnsmasq.d
+    cap_add:
+      - NET_ADMIN
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - stack_uptime_kuma_data:/app/data
+
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    volumes:
+      - vaultwarden_vaultwarden_data:/data
+
+volumes:
+  stack_pihole_data:
+  stack_dnsmasq_data:
+  stack_uptime_kuma_data:
+  vaultwarden_vaultwarden_data:

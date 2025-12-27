@@ -1,0 +1,40 @@
+# ======================
+# Docker / Homelab
+# ======================
+
+.env
+.env.*
+*.env
+
+# Docker volumes (never commit data)
+data/
+volumes/
+**/data/
+**/volumes/
+
+# Backups
+*.bak
+*.backup
+*.zip
+*.tar
+*.gz
+
+# Logs
+*.log
+logs/
+**/logs/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Secrets
+secrets/
+*.key
+*.pem
+*.crt
+
+# Local overrides
+docker-compose.override.yml
