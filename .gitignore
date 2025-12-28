@@ -2,6 +2,7 @@
 # Docker / Homelab
 # ======================
 
+# Environment files (never commit secrets)
 .env
 .env.*
 *.env
@@ -38,6 +39,3 @@ secrets/
 
 # Local overrides
 docker-compose.override.yml
-
-.env
-
